@@ -1,7 +1,7 @@
 ### Steps to install Project:
 1. Install CORS Chrome Extension
-2. main directory run npm start on terminal
-3. Open other tab of terminal then move to the directory location: cd ./front -> npm run dev
+2. main directory run -> npm install -> npm start on terminal
+3. Open another tab of terminal then move to the directory location: cd ./front -> npm install -> npm run dev
 
 .env variables to place in that file .env for main directory
 
