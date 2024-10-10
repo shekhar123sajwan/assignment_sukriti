@@ -3,6 +3,13 @@
 2. main directory run npm start on terminal
 3. Open other tab of terminal then move to the directory location: cd ./front -> npm run dev
 
+.env variables to place in that file .env for main directory
+
+NODE_ENV=development
+PORT=3000
+MONGO_URI="mongodb+srv://shekhar:VD73Z7078P6AlHFs@cluster0.bca2o.mongodb.net/"
+JWTKEY="DEVTINDER@123"
+
 
 
 ### 1. Difference between Controlled and Uncontrolled Components in React
