@@ -74,9 +74,19 @@ const getUser = async (req, res) => {
   }
   return res.status(200).json({ data: users, message: "User found" });
 };
+
+const getLoginUserProfile = async (req, res) => {
+  const user = req.user;
+
+  if (!user) {
+    return res.status(200).json({ data: null, message: "No users found" });
+  }
+  return res.status(200).json({ data: user, message: "User found" });
+};
 module.exports = {
   getAllUsers,
   updateUser,
   deleteUser,
   getUser,
+  getLoginUserProfile,
 };

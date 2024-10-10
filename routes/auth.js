@@ -45,7 +45,6 @@ router.post("/login", async (req, res) => {
       );
 
       res.cookie("token", token, {
-        httpOnly: true,
         maxAge: 24 * 7 * 60 * 60 * 1000,
       });
 
@@ -58,5 +57,12 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     throw new Error(err.message);
   }
+});
+
+router.post("/logout", async (req, res) => {
+  res.cookie("token", null, {
+    expires: new Date(Date.now()),
+  });
+  res.json({ data: [], message: "Logged out successfully" }).status(200);
 });
 module.exports = router;

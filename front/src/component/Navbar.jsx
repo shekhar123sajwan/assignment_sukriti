@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { removeUser } from "../utils/userSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user.user);
@@ -10,9 +11,18 @@ const Navbar = () => {
 
   const fetchUser = async () => {};
 
-  useEffect(() => {
-    fetchUser();
-  }, []);
+  const handleLogout = async () => {
+    try {
+      await fetch("http://localhost:3000/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+      dispatch(removeUser());
+      return navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="navbar bg-base-100">
@@ -29,7 +39,7 @@ const Navbar = () => {
                 <Link to={"/"}>Profile</Link>
               </li>
               <li>
-                <Link to={"/logout"}>logout</Link>
+                <button onClick={handleLogout}>logout</button>
               </li>
             </>
           ) : (

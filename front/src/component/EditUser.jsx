@@ -37,7 +37,7 @@ const EditUser = () => {
         return;
       }
 
-      setSuccess("User created successfully");
+      setSuccess("User updated successfully");
       setTimeout(() => {
         setSuccess(null);
         navigate("/");
